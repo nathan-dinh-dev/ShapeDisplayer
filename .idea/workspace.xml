@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb588f3a-a1bd-40ba-abb3-3aad6a2eab82" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CarShape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CompositeShape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HouseShape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ShapeDisplayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ShapeIcon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnowMan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CarShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CarShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CompositeShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CompositeShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HouseShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HouseShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ShapeDisplayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShapeDisplayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731617237642</updated>
-      <workItem from="1731617238744" duration="3093000" />
+      <workItem from="1731617238744" duration="3722000" />
     </task>
     <servers />
   </component>

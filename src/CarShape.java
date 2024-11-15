@@ -18,10 +18,18 @@ public class CarShape implements CompositeShape {
         this.width = width;
     }
 
+    /**
+     * Moves the car shape one unit to the right.
+     */
     public void move() {
         x++;
     }
 
+    /**
+     * Draws the car shape using the specified graphics context.
+     *
+     * @param g2 the graphics context
+     */
     public void draw(Graphics2D g2) {
         Rectangle2D.Double body = new Rectangle2D.Double(x, y + width / 6, width - 1, width / 6);
         Ellipse2D.Double frontTire = new Ellipse2D.Double(x + width / 6, y + width / 3, width / 6, width / 6);
