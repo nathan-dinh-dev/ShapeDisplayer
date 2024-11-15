@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ShapeDisplayer sets up a simple GUI application that allows users to choose
@@ -11,6 +13,10 @@ import java.awt.event.*;
  */
 public class ShapeDisplayer {
     private CompositeShape currentShape;
+    // Variable to check which button is selected
+    private JButton selectedButton;
+    // List to store drawn shapes
+    private List<CompositeShape> shapesList = new ArrayList<>();
 
     /**
      * The main method initializes the GUI application.
@@ -36,26 +42,34 @@ public class ShapeDisplayer {
         // Create and add buttons for each shape
         JButton carButton = createButton(new CarShape(0, 0, 50), "Car");
         JButton snowmanButton = createButton(new SnowMan(0, 0, 50), "Snowman");
-        JButton customShapeButton = createButton(new HouseShape(0, 0, 50), "House");
+        JButton houseButton = createButton(new HouseShape(0, 0, 50), "House");
 
         buttonPanel.add(carButton);
         buttonPanel.add(snowmanButton);
-        buttonPanel.add(customShapeButton);
+        buttonPanel.add(houseButton);
 
         frame.add(buttonPanel, BorderLayout.NORTH);
 
         JPanel drawingPanel = new JPanel() {
+            @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
+                // Redraw all shapes from the list whenever the panel repaints
+                for (CompositeShape shape : shapesList) {
+                    shape.draw((Graphics2D) g);
+                }
             }
         };
 
         // Add a mouse listener to the drawing panel
         drawingPanel.addMouseListener(new MouseAdapter() {
+            @Override
             public void mousePressed(MouseEvent e) {
                 if (currentShape != null) {
+                    // Create a new instance of the current shape at the mouse location
                     CompositeShape shapeToDraw = getNewShapeInstance(currentShape, e.getX(), e.getY(), 50);
-                    shapeToDraw.draw((Graphics2D) drawingPanel.getGraphics());
+                    shapesList.add(shapeToDraw); // Add shape to the list
+                    drawingPanel.repaint(); // Repaint to display the new shape
                 }
             }
         });
@@ -75,9 +89,33 @@ public class ShapeDisplayer {
      */
     private JButton createButton(CompositeShape shape, String name) {
         JButton button = new JButton(new ShapeIcon(shape, 50, 50));
-        button.addActionListener(e -> currentShape = shape);
         button.setText(name);
+
+        // Add action listener to change the selected button and shape
+        button.addActionListener(e -> {
+            currentShape = shape;
+            updateButtonSelection(button);
+        });
+
         return button;
+    }
+
+    /**
+     * Updates the appearance of the selected button, and resets the previously selected button.
+     *
+     * @param button the newly selected button
+     */
+    private void updateButtonSelection(JButton button) {
+        // Reset the background of the previously selected button
+        if (selectedButton != null) {
+            selectedButton.setBorder(BorderFactory.createEmptyBorder());
+        }
+
+        // Set the border of the newly selected button
+        button.setBorder(BorderFactory.createLineBorder(Color.BLUE, 2));
+
+        // Update the reference to the selected button
+        selectedButton = button;
     }
 
     /**
